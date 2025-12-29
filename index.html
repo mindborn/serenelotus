@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Infrastructure Engineering Services</title>
+  <meta name="description" content="Comprehensive Infrastructure Engineering, CAD, BIM, Roadway, Traffic, PHE, and Land Surveying services." />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --text: #1f2a44;
+      --muted: #5b6b88;
+      --primary: #0a4da2;
+      --primary-dark: #083d82;
+      --accent: #e6f0ff;
+      --card: #ffffff;
+      --border: #e4e9f2;
+      --radius: 14px;
+      --radius-sm: 10px;
+      --shadow: 0 10px 22px rgba(16, 24, 40, 0.08);
+      --shadow-sm: 0 6px 16px rgba(16, 24, 40, 0.06);
+      --max: 1120px;
+    }
+
+    @media (prefers-color-scheme: dark) {
+	:root {
+		--bg: #1d2127; 
+		--text: #e6edf3; 
+		--muted: #9ba7b4; 
+		--primary: #58a6ff; 
+		--primary-dark: #1f6feb; 
+		--accent: #161b22; 
+		--card: #1c2128; 
+		--border: #30363d; 
+	      	--shadow: 0 10px 22px rgba(216, 224, 240, 0.4);
+      		--shadow-sm: 0 6px 16px rgba(216, 224, 240, 0.06);
+	}
+   }
+
+    /* Global reset and typography */
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    /* Layout containers */
+    .container {
+      width: 100%;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header + Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--card);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .header-inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-logo {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      display: grid; place-items: center;
+      color: #fff; font-weight: 700; font-size: 16px;
+      box-shadow: var(--shadow-sm);
+    }
+    .brand-name {
+      font-weight: 700; font-size: 18px;
+      letter-spacing: 0.3px;
+    }
+    nav {
+      display: flex; align-items: center; gap: 6px;
+    }
+    .nav-links {
+      display: flex; gap: 6px;
+      background: var(--accent);
+      padding: 6px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+    }
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 10px;
+      color: var(--muted);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    .nav-links a.active,
+    .nav-links a:hover {
+      background: #fff;
+      color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-cta {
+      margin-left: 8px;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 700;
+      transition: transform 0.08s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .nav-cta:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      background: var(--accent);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      font-weight: 700;
+      padding: 10px 12px;
+      border-radius: 10px;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(180deg, var(--bg), var(--accent));
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      padding: 48px 20px;
+    }
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: clamp(28px, 4.5vw, 42px);
+      line-height: 1.2;
+      letter-spacing: 0.2px;
+    }
+    .hero p {
+      margin: 0 0 22px;
+      color: var(--muted);
+      font-size: clamp(14px, 2.2vw, 16px);
+    }
+    .hero-cta {
+      display: flex; gap: 12px; flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      padding: 12px 16px; border-radius: 12px;
+      font-weight: 700; border: 1px solid var(--border);
+      background: #fff; color: var(--primary);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn.primary {
+      background: var(--primary); color: #fff; border-color: var(--primary);
+    }
+    .btn:hover { transform: translateY(-1px); box-shadow: var(--shadow); }
+
+    .hero-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .hero-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .hero-card ul { display: grid; gap: 10px; }
+    .hero-card li {
+      padding: 10px 12px;
+      background: var(--accent);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      font-weight: 600; color: var(--muted);
+    }
+
+    /* Section base */
+    section {
+      padding: 40px 0;
+    }
+    .section-title {
+      text-align: center;
+      margin: 0 auto 20px;
+      max-width: 760px;
+      padding: 0 12px;
+    }
+    .section-title h2 {
+      margin: 0 0 8px;
+      font-size: clamp(22px, 3.5vw, 30px);
+    }
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .card h3 { margin: 0 0 8px; font-size: 18px; }
+    .card p { margin: 0; color: var(--muted); }
+
+    /* Vision & Mission */
+    .vm-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .vm-card {
+      padding: 18px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .vm-card h3 { margin: 0 0 10px; font-size: 18px; }
+    .vm-card p { margin: 0; color: var(--muted); }
+
+    /* Services */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .service-item {
+      padding: 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+    .service-item h4 { margin: 0 0 6px; font-size: 16px; }
+    .service-item p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    /* Contact */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .contact-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+    .contact-details {
+      display: grid; gap: 10px;
+      font-size: 14px; color: var(--muted);
+    }
+    iframe {
+      width: 100%;
+      min-height: 520px;
+      border: none;
+      border-radius: var(--radius-sm);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* Footer */
+    footer {
+      padding: 30px 0;
+      background: var(--bg);
+      color: var(--text);
+      margin-top: 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .footer-grid h5 { margin: 0 0 10px; font-size: 15px; color: #fff; }
+    .footer-grid p, .footer-grid li { font-size: 14px; color: var(--text); }
+    .footer-bottom {
+      margin-top: 18px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 12px;
+      display: flex; justify-content: space-between; gap: 10px;
+      font-size: 13px;
+    }
+    .footer-links { display: flex; gap: 12px; flex-wrap: wrap; }
+    .footer-links a { color: #a9c2e6; }
+
+    /* Responsive tweaks */
+    @media (max-width: 992px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-grid, .vm-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      .header-inner { grid-template-columns: 1fr auto; }
+      .nav { position: relative; }
+      .menu-toggle { display: inline-flex; }
+      .nav-links, .nav-cta { display: none; }
+      .nav.open .nav-links,
+      .nav.open .nav-cta { display: inline-flex; }
+      .nav-links { flex-wrap: wrap; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .hero-inner { padding: 28px 20px; }
+      .brand-logo { width: 38px; height: 38px; }
+    }
+
+    /* Reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      .btn:hover, .nav-cta:hover { transform: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header & Navigation -->
+  <header>
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-logo" aria-hidden="true">IE</div>
+        <div class="brand-name">Infrastructure Engineering Services</div>
+      </div>
+      <nav class="nav" id="nav">
+        <button class="menu-toggle" aria-label="Toggle menu" onclick="document.getElementById('nav').classList.toggle('open')">
+          Menu
+        </button>
+        <div class="nav-links" role="navigation" aria-label="Primary">
+          <a href="#about" class="active">About</a>
+          <a href="#vision">Vision</a>
+          <a href="#mission">Mission</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="#contact">Get in touch</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="container hero-inner">
+      <div>
+        <h1>Precision engineering for modern infrastructure</h1>
+        <p>
+          Drafting, modelling, and end-to-end engineering with CAD and BIM. We deliver feasibility, accuracy, and
+          collaboration across earthwork, roadway, traffic, PHE, and land surveying.
+        </p>
+        <div class="hero-cta">
+          <a class="btn primary" href="#contact">Start a project</a>
+          <a class="btn" href="#services">Explore services</a>
+        </div>
+      </div>
+      <aside class="hero-card" aria-label="Key capabilities">
+        <h3>Core capabilities</h3>
+        <ul>
+          <li>Earthwork & site grading (Civil 3D)</li>
+          <li>Highway alignments, corridors, intersections</li>
+          <li>Vehicle tracking & Autoturn simulations</li>
+          <li>Water, sewer & storm networks (PHE)</li>
+          <li>ALTA, lot survey & UAV mapping</li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="container">
+      <div class="section-title" id="about-title">
+        <h2>About us</h2>
+        <p>
+          We provide comprehensive engineering and CAD services for the AEC industry, combining BIM-driven collaboration
+          with standards-compliant delivery to help teams design, coordinate, and build with confidence.
+        </p>
+      </div>
+      <div class="about-grid">
+        <div class="card">
+          <h3>Approach</h3>
+          <p>
+            From survey data and existing topography to concept design and feasibility analysis, our workflows
+            prioritize accuracy, reproducibility, and clear documentation for each project phase.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Delivery</h3>
+          <p>
+            We produce GFC-ready drawings, cut/fill analyses, profiles, cross-sections, and automated plan sets—reducing
+            iteration cycles and improving coordination across disciplines.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vision & Mission -->
+  <section aria-label="Vision and Mission">
+    <div class="container">
+      <div class="vm-grid">
+        <div class="vm-card" id="vision" aria-labelledby="vision-title">
+          <h3 id="vision-title">Vision</h3>
+          <p>
+            Be the trusted engineering partner enabling sustainable, resilient infrastructure through data-driven design,
+            advanced modelling, and collaborative delivery.
+          </p>
+        </div>
+        <div class="vm-card" id="mission" aria-labelledby="mission-title">
+          <h3 id="mission-title">Mission</h3>
+          <p>
+            Empower clients with precise engineering, BIM-centred coordination, and scalable workflows that align with
+            standards while meeting real-world constraints on time and cost.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="container">
+      <div class="section-title" id="services-title">
+        <h2>Services</h2>
+        <p>End-to-end infrastructure engineering across planning, design, modelling, analysis, and documentation.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-item">
+          <h4>Earthwork & site grading</h4>
+          <p>Feature lines, grading tools, cut/fill, quantity estimates, lot grading, and parcel creation.</p>
+        </div>
+        <div class="service-item">
+          <h4>Roadway engineering</h4>
+          <p>Alignment design, corridors, horizontal/vertical geometry, cross-sections, culverts, and intersections.</p>
+        </div>
+        <div class="service-item">
+          <h4>Traffic engineering</h4>
+          <p>Vehicle tracking, Autoturn simulations, vertical/horizontal clearance checks and route feasibility.</p>
+        </div>
+        <div class="service-item">
+          <h4>Public health engineering</h4>
+          <p>Water, sewer, storm networks; L-sections; utility crossings and integrated township layouts.</p>
+        </div>
+        <div class="service-item">
+          <h4>Land surveying</h4>
+          <p>ALTA surveys, lot/boundary topography, drone mapping and UAV-based terrain modelling.</p>
+        </div>
+        <div class="service-item">
+          <h4>CAD & BIM delivery</h4>
+          <p>Drafting, drawing sets, model coordination, BIM-based collaboration, and GFC documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <div class="section-title" id="contact-title">
+        <h2>Contact us</h2>
+        <p>Tell us about your project. We’ll respond within one business day.</p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Project inquiry form</h3>
+          <!-- Replace the src below with your actual Google Form embed link: Google Forms → Send → </> Embed HTML -->
+          <iframe
+            title="Project inquiry"
+            src="https://docs.google.com/forms/d/e/1FAIpQLSdDUMMYFORMURL/viewform?embedded=true">
+            Loading…
+          </iframe>
+        </div>
+
+        <div class="contact-card">
+          <h3>Direct contact</h3>
+          <div class="contact-details">
+            <div><strong>Email:</strong> info@yourdomain.com</div>
+            <div><strong>Phone:</strong> +91-98765-43210</div>
+            <div><strong>Location:</strong> Solapur, Maharashtra, India</div>
+            <div><strong>Hours:</strong> Mon–Fri, 9:30 AM–6:30 PM IST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h5>Infrastructure Engineering Services</h5>
+          <p>Engineering, CAD, and BIM solutions for earthwork, roadway, traffic, PHE, and surveying.</p>
+        </div>
+        <div>
+          <h5>Quick links</h5>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#vision">Vision</a></li>
+            <li><a href="#mission">Mission</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <!--div>
+          <h5>Legal</h5>
+          <ul>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div-->
+      </div>
+      <div class="footer-bottom">
+        <div>© 2026 Infrastructure Engineering Services. All rights reserved.</div>
+        <div class="footer-links">
+          <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          <a href="#" aria-label="Twitter">Twitter/X</a>
+          <a href="#" aria-label="YouTube">YouTube</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Small inline script for mobile nav (no external dependencies) -->
+  <script>
+    // Close menu on outside click for better UX
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('nav');
+      if (!nav.contains(e.target)) nav.classList.remove('open');
+    });
+    // Close menu after clicking a link (mobile)
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => document.getElementById('nav').classList.remove('open'));
+    });
+  </script>
+</body>
+</html>
